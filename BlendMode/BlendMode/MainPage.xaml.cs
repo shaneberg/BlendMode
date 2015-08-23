@@ -26,5 +26,10 @@ namespace BlendMode
         {
             this.InitializeComponent();
         }
+
+        private void TransitionSlider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
+        {
+
+        }
     }
 }

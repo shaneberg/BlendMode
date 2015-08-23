@@ -8,25 +8,24 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-        x:Name="LayoutRoot"
-        Background="White">
+        x:Name="LayoutRoot">
         <Grid.RowDefinitions>
             <RowDefinition Height="380"/>
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
         <Grid>
-            <Grid.Effect>
+            <!--<Grid.Effect>
                 <BlurEffect x:Name="ImageBlur" 
                                 Radius="0"/>
-            </Grid.Effect>
+            </Grid.Effect>-->
             <Image x:Name="StartImage" 
             Source="buffalo.jpg" 
             Width="500" 
             Opacity="1">
-                <Image.Effect>
+                <!-- <Image.Effect>
                     <local:InvertColorEffect/>
 
-                </Image.Effect>
+                </Image.Effect> -->
             </Image>
             <Image x:Name="EndImage"
             Source="drink.jpg"
