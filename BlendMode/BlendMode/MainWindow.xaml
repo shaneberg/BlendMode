@@ -12,6 +12,9 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
+            <Grid.Effect>
+                <local:InvertColorEffect/>
+            </Grid.Effect>
             <Image x:Name="Image2" Grid.Row="0" Source="Images\image2.jpg"/>
             <Image x:Name="Image1" Grid.Row="0" Source="Images\image1.jpg"/>
         </Grid>
