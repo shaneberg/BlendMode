@@ -23,6 +23,14 @@ namespace BlendMode
         public MainWindow()
         {
             InitializeComponent();
+            this.Image1.Opacity = this.BlendModeSlider.Value;
+            this.Image2.Opacity = 1 - this.BlendModeSlider.Value;
+        }
+
+        private void BlendModeSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            this.Image1.Opacity = e.NewValue;
+            this.Image2.Opacity = 1 - e.NewValue;
         }
     }
 }

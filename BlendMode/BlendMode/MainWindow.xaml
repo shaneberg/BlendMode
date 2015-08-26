@@ -11,8 +11,10 @@
             <RowDefinition Height="4*"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Image Grid.Row="0" x:Name="Image2" Source="Images\image2.jpg"/>
-        <Image Grid.Row="0" x:Name="Image1" Source="Images\image1.jpg" Opacity="0.5"/>
-        <Slider Grid.Row="1" x:Name="BlendModeSlider"/>
+        <Grid Grid.Row="0">
+            <Image x:Name="Image2" Grid.Row="0" Source="Images\image2.jpg"/>
+            <Image x:Name="Image1" Grid.Row="0" Source="Images\image1.jpg"/>
+        </Grid>
+        <Slider x:Name="BlendModeSlider" Grid.Row="1" Maximum="1.0" Minimum="0.0" ValueChanged="BlendModeSlider_ValueChanged"/>
     </Grid>
 </Window>
