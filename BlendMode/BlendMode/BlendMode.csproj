@@ -85,6 +85,8 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="BuildScripts\BuildShaders.cmd" />
+    <None Include="CompiledShaders\InvertColor.ps" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -101,7 +103,13 @@
   <ItemGroup>
     <Resource Include="Images\image2.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="PixelShaders\InvertColor.hlsl" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>$(SolutionDir)\BlendMode\BuildScripts\BuildShaders.cmd</PreBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
