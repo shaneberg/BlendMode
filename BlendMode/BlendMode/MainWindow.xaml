@@ -12,9 +12,11 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid x:Name="EffectGrid" Grid.Row="0">
-            <Image x:Name="Image2" Grid.Row="0" Source="Images\image2.jpg"/>
-            <Image x:Name="Image1" Grid.Row="0" Source="Images\image1.jpg"/>
+            <Image x:Name="LowerLayer" Grid.Row="0" Source="Images\image2.jpg"/>
+            <Image x:Name="UpperLayer" Grid.Row="0" Source="Images\image1.jpg"/>
         </Grid>
         <Slider x:Name="BlendModeSlider" Grid.Row="1" Maximum="1.0" Minimum="0.0" ValueChanged="BlendModeSlider_ValueChanged"/>
+        <ComboBox x:Name="ComboBox" Grid.Row="1" Width="200" Height="20"/>
+
     </Grid>
 </Window>

@@ -15,22 +15,37 @@ namespace BlendMode
             this.pixelShader.UriSource = new Uri("/BlendMode;component/CompiledShaders/" + relativePath, UriKind.Relative);
             this.PixelShader = this.pixelShader;
 
-            this.UpdateShaderValue(InputProperty);
+            this.UpdateShaderValue(UpperLayerInputProperty);
+            this.UpdateShaderValue(LowerLayerInputProperty);
         }
 
-        public static readonly DependencyProperty InputProperty = ShaderEffect.RegisterPixelShaderSamplerProperty("Input", typeof(PixelShaderEffect), 0);
+        public static readonly DependencyProperty UpperLayerInputProperty = ShaderEffect.RegisterPixelShaderSamplerProperty("UpperLayerInput", typeof(PixelShaderEffect), 0);
+        public static readonly DependencyProperty LowerLayerInputProperty = ShaderEffect.RegisterPixelShaderSamplerProperty("LowerLayerInput", typeof(PixelShaderEffect), 1);
 
-        public Brush Input
+        public Brush UpperLayerInput
         {
             get
             {
-                return ((Brush)this.GetValue(InputProperty));
+                return ((Brush)this.GetValue(UpperLayerInputProperty));
             }
             set
             {
-                this.SetValue(InputProperty, value);
+                this.SetValue(UpperLayerInputProperty, value);
             }
         }
+
+        public Brush LowerLayerInput
+        {
+            get
+            {
+                return ((Brush)this.GetValue(LowerLayerInputProperty));
+            }
+            set
+            {
+                this.SetValue(LowerLayerInputProperty, value);
+            }
+        }
+
 
     }
 }

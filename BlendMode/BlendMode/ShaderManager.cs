@@ -38,8 +38,10 @@ namespace BlendMode
             
             foreach (string curString in shaderList)
             {
-                PixelShaderEffect newShaderEffect = new PixelShaderEffect(System.IO.Path.GetFileName(curString));
-                this.PixelShaders.Add(curString, newShaderEffect);
+                string name = System.IO.Path.GetFileName(curString);
+                PixelShaderEffect newShaderEffect = new PixelShaderEffect(name);
+
+                this.PixelShaders.Add(name, newShaderEffect);
             }
         }
     }

@@ -26,17 +26,33 @@ namespace BlendMode
 
             foreach (var kvp in ShaderManager.Instance.PixelShaders)
             {
+                PixelShaderEffect effect = kvp.Value;
+
+                effect.UpperLayerInput = new ImageBrush(this.UpperLayer.Source);
+                effect.LowerLayerInput = new ImageBrush(this.LowerLayer.Source);
+
                 this.EffectGrid.Effect = kvp.Value as System.Windows.Media.Effects.ShaderEffect;
+                this.ComboBox.SelectedItem = kvp.Key;
+                ComboBoxItem item = new ComboBoxItem();
+                item.Content = kvp.Key;
+                item.Selected += Item_Selected;
+                this.ComboBox.Items.Add(item);
             }
 
-            this.Image1.Opacity = this.BlendModeSlider.Value;
-            this.Image2.Opacity = 1 - this.BlendModeSlider.Value;
+            this.UpperLayer.Opacity = this.BlendModeSlider.Value;
+            this.LowerLayer.Opacity = 1 - this.BlendModeSlider.Value;
+        }
+
+        private void Item_Selected(object sender, RoutedEventArgs e)
+        {
+            ComboBoxItem box = sender as ComboBoxItem;
+            this.EffectGrid.Effect = ShaderManager.Instance.PixelShaders[box.Content.ToString()] as System.Windows.Media.Effects.ShaderEffect;
         }
 
         private void BlendModeSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            this.Image1.Opacity = e.NewValue;
-            this.Image2.Opacity = 1 - e.NewValue;
+            this.UpperLayer.Opacity = e.NewValue;
+            this.LowerLayer.Opacity = 1 - e.NewValue;
         }
     }
 }

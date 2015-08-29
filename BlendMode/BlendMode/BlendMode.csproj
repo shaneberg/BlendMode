@@ -91,6 +91,18 @@
     <Resource Include="CompiledShaders\InvertColor.ps">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="CompiledShaders\NormalBlend.ps">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="CompiledShaders\MultiplyBlend.ps">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="CompiledShaders\ScreenBlend.ps">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="CompiledShaders\OverlayBlend.ps">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -109,6 +121,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="PixelShaders\InvertColor.hlsl" />
+    <Content Include="PixelShaders\MultiplyBlend.hlsl" />
+    <Content Include="PixelShaders\OverlayBlend.hlsl" />
+    <Content Include="PixelShaders\ScreenBlend.hlsl" />
+    <Content Include="PixelShaders\NormalBlend.hlsl" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
