@@ -3,21 +3,22 @@ using System.Windows;
 using System.Windows.Media;
 
 using System.Windows.Media.Effects;
+
 namespace BlendMode
 {
-    public class InvertColorEffect : ShaderEffect
+    public class PixelShaderEffect : ShaderEffect
     {
         private PixelShader pixelShader = new PixelShader();
 
-        public InvertColorEffect()
+        public PixelShaderEffect(string relativePath)
         {
-            this.pixelShader.UriSource = new Uri("/BlendMode;component/CompiledShaders/InvertColor.ps", UriKind.Relative);
+            this.pixelShader.UriSource = new Uri("/BlendMode;component/CompiledShaders/" + relativePath, UriKind.Relative);
             this.PixelShader = this.pixelShader;
 
             this.UpdateShaderValue(InputProperty);
         }
 
-        public static readonly DependencyProperty InputProperty = ShaderEffect.RegisterPixelShaderSamplerProperty("Input", typeof(InvertColorEffect), 0);
+        public static readonly DependencyProperty InputProperty = ShaderEffect.RegisterPixelShaderSamplerProperty("Input", typeof(PixelShaderEffect), 0);
 
         public Brush Input
         {

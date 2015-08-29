@@ -23,6 +23,12 @@ namespace BlendMode
         public MainWindow()
         {
             InitializeComponent();
+
+            foreach (var kvp in ShaderManager.Instance.PixelShaders)
+            {
+                this.EffectGrid.Effect = kvp.Value as System.Windows.Media.Effects.ShaderEffect;
+            }
+
             this.Image1.Opacity = this.BlendModeSlider.Value;
             this.Image2.Opacity = 1 - this.BlendModeSlider.Value;
         }
